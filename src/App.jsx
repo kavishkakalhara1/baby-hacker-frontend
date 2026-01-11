@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import React, { useState, useEffect } from "react";
-import AnimatedRoutes from "./components/";
+import AnimatedRoutes from "./components/AnimatedRoutes";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaSkull, FaExclamationTriangle, FaTerminal } from "react-icons/fa";
 
