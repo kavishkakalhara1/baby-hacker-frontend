@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import React, { useState, useEffect } from "react";
-import AnimatedRoutes from "./components/Animatedroutes";
+import AnimatedRoutes from "./components/";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaSkull, FaExclamationTriangle, FaTerminal } from "react-icons/fa";
 
@@ -32,7 +32,7 @@ function RightClickPopup({ isVisible, onClose }) {
             animate={{ scale: 1, opacity: 1, rotateX: 0 }}
             exit={{ scale: 0.5, opacity: 0, rotateX: 15 }}
             transition={{ type: "spring", damping: 15 }}
-            className="relative max-w-md mx-4 p-8 rounded-2xl border border-red-500/30 overflow-hidden"
+            className="relative max-w-md p-8 mx-4 overflow-hidden border rounded-2xl border-red-500/30"
             style={{
               background: 'linear-gradient(145deg, rgba(18, 18, 26, 0.95) 0%, rgba(10, 10, 15, 0.98) 100%)',
             }}
@@ -40,7 +40,7 @@ function RightClickPopup({ isVisible, onClose }) {
           >
             {/* Glowing Background Effect */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-red-500/20 rounded-full blur-3xl" />
+              <div className="absolute top-0 w-64 h-64 -translate-x-1/2 rounded-full left-1/2 bg-red-500/20 blur-3xl" />
             </div>
 
             {/* Scan Lines */}
@@ -60,23 +60,23 @@ function RightClickPopup({ isVisible, onClose }) {
                   rotate: [0, -5, 5, 0]
                 }}
                 transition={{ duration: 0.5, repeat: 2 }}
-                className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-red-500/10 border border-red-500/30 mb-6"
+                className="inline-flex items-center justify-center w-20 h-20 mb-6 border rounded-full bg-red-500/10 border-red-500/30"
               >
                 <FaExclamationTriangle className="w-10 h-10 text-red-500" />
               </motion.div>
 
               {/* Title */}
-              <h2 className="text-2xl font-bold text-red-500 font-cyber mb-2 tracking-wider">
+              <h2 className="mb-2 text-2xl font-bold tracking-wider text-red-500 font-cyber">
                 ACCESS DENIED
               </h2>
 
               {/* Terminal Style Message */}
-              <div className="bg-black/50 rounded-xl p-4 mb-4 border border-gray-800">
-                <div className="flex items-center gap-2 text-gray-500 text-xs mb-2 font-mono">
+              <div className="p-4 mb-4 border border-gray-800 bg-black/50 rounded-xl">
+                <div className="flex items-center gap-2 mb-2 font-mono text-xs text-gray-500">
                   <FaTerminal className="w-3 h-3" />
                   <span>security_alert.log</span>
                 </div>
-                <div className="font-mono text-sm text-left space-y-1">
+                <div className="space-y-1 font-mono text-sm text-left">
                   <div className="text-red-400">[WARNING] Unauthorized action detected</div>
                   <div className="text-gray-400">[INFO] Right-click is disabled on this site</div>
                   <div className="text-[#00ff41]">[STATUS] Nice try, hacker! 😎</div>
@@ -84,13 +84,13 @@ function RightClickPopup({ isVisible, onClose }) {
               </div>
 
               {/* Subtext */}
-              <p className="text-gray-400 text-sm">
+              <p className="text-sm text-gray-400">
                 This action has been logged. Click anywhere to dismiss.
               </p>
 
               {/* Animated Border */}
               <motion.div
-                className="absolute inset-0 rounded-2xl pointer-events-none"
+                className="absolute inset-0 pointer-events-none rounded-2xl"
                 style={{
                   background: 'linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.3), transparent)',
                   backgroundSize: '200% 100%',
@@ -111,7 +111,7 @@ function RightClickPopup({ isVisible, onClose }) {
 // Background Skull Click Effect Component
 function SkullClickEffect({ clicks }) {
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
       <AnimatePresence>
         {clicks.map((click) => (
           <motion.div
@@ -140,7 +140,7 @@ function SkullClickEffect({ clicks }) {
             animate={{ opacity: 0.04, scale: 1, rotate: 0 }}
             exit={{ opacity: 0, scale: 1.1, rotate: 10 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
           >
             <FaSkull className="w-[500px] h-[500px] text-[#00ff41]" />
           </motion.div>
